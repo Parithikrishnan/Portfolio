@@ -1,0 +1,150 @@
+/* Full-screen container */
+.laserflow-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  background-color: #060010;
+}
+
+/* Laser background wrapper */
+.laser-effect-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 85%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: lighten;
+  opacity: 0.9;
+  filter: brightness(1.2) contrast(1.1) saturate(1.4);
+}
+
+/* Center box container */
+.center-box {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 1000px;
+  height: 20%;
+  background-color: rgba(6, 0, 16, 0.85);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  z-index: 6;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(255, 121, 198, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated border trace (while typing) */
+.center-box::before,
+.center-box::after,
+.center-box .border-side-top,
+.center-box .border-side-right,
+.center-box .border-side-bottom,
+.center-box .border-side-left {
+  content: '';
+  position: absolute;
+  background-color: #4169E1;
+  z-index: 7;
+}
+
+/* Top border (left to right) */
+.center-box::before {
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  animation: drawBorderHorizontal 1s linear forwards;
+}
+
+/* Right border (top to bottom) */
+.center-box .border-side-right {
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 0;
+  animation: drawBorderVertical 1s linear forwards;
+  animation-delay: 2s; /* Starts after top border completes */
+}
+
+/* Bottom border (right to left) */
+.center-box::after {
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  animation: drawBorderHorizontalReverse 1s linear forwards;
+  animation-delay: 2s; /* Starts after right border completes */
+}
+
+/* Left border (bottom to top) */
+.center-box .border-side-left {
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  animation: drawBorderVerticalReverse 1s linear forwards;
+  animation-delay: 3s; /* Starts after bottom border completes */
+}
+
+
+/* Show full border when typing completes */
+.center-box.loaded {
+  border: 2px solid #4169E1;
+}
+
+.center-box.loaded::before,
+.center-box.loaded::after,
+.center-box.loaded .border-side-right,
+.center-box.loaded .border-side-left {
+  display: none;
+}
+
+/* Keyframes for horizontal border draw (left to right) */
+@keyframes drawBorderHorizontal {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Keyframes for vertical border draw (top to bottom) */
+@keyframes drawBorderVertical {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+/* Keyframes for horizontal border draw (right to left) */
+@keyframes drawBorderHorizontalReverse {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Keyframes for vertical border draw (bottom to top) */
+@keyframes drawBorderVerticalReverse {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
