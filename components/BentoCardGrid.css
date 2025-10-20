@@ -1,0 +1,36 @@
+.card-grid {
+  display: grid;
+  gap: 20px; /* Default gap */
+  padding: 0;
+  width: 100%; /* Take full width of its parent */
+  height: 100%; /* Take full height of its parent */
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+  box-sizing: border-box;
+  overflow: hidden; /* Ensure no scrolling within the grid itself */
+  /* Remove flex-grow here if you set display:flex on right-sidebar-container */
+}
+
+/* Default grid for larger screens */
+@media (min-width: 993px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* The 1fr ensures even distribution */
+  }
+  .card.about-me-box {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 992px) {
+  .card-grid {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+    width: 100%;
+    height: 100%; /* Ensure it fills parent */
+    gap: 15px; /* Smaller gap for mobile */
+    overflow-y: auto; /* Allow scrolling for grid content if it overflows on small screens */
+  }
+
+  .card.about-me-box {
+    grid-column: span 1; /* Reset span for smaller screens */
+  }
+}
