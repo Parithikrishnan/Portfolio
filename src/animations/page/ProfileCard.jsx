@@ -35,7 +35,7 @@ const ProfileCardComponent = ({
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
   miniAvatarUrl,
-  name = 'Javi A. Torres',
+  name = 'Parithikrishnan',
   title = 'Software Engineer',
   handle = 'parithikrishnan.me',
   status = 'Open to Work',

@@ -1,0 +1,181 @@
+/* ===== Grid Layout (CRITICAL CHANGES) ===== */
+.card-grid {
+  display: grid;
+  /* 1. Define 3 equal columns */
+  grid-template-columns: 1fr 1fr 1fr;
+  /* 2. Define 3 rows, allowing content to determine height (auto) or setting a minimum */
+  grid-template-rows: minmax(180px, auto) minmax(180px, auto) minmax(180px, auto);
+  /* 3. Visually map the layout using area names */
+  grid-template-areas:
+    "skills about certs"
+    "contact about ."
+    ". resume more";
+  
+  gap: 24px;
+  padding: 40px;
+  justify-items: stretch;
+  align-items: stretch;
+  position: relative;
+  background: radial-gradient(circle at center, rgba(50, 0, 120, 0.25), transparent 80%);
+}
+
+/* ---------------------------------------------------- */
+
+/* ===== Card Base Styling (No Change) ===== */
+.card {
+  background: rgba(15, 15, 30, 0.9);
+  border: 1px solid rgba(100, 100, 255, 0.25);
+  border-radius: 20px;
+  color: #a5b9ff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 20px rgba(0, 50, 150, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(120, 120, 255, 0.4);
+}
+
+/* ---------------------------------------------------- */
+
+/* ===== Mouse Spotlight Effect (No Change) ===== */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  top: var(--mouse-y, 0);
+  left: var(--mouse-x, 0);
+  background: radial-gradient(circle at center, rgba(150, 170, 255, 0.35), transparent 60%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+.card:hover::before {
+  opacity: 1;
+}
+
+/* ---------------------------------------------------- */
+
+/* ===== Grid Box Positions (CRITICAL CHANGES: Using grid-area) ===== */
+/* Assigns the areas defined above to the classes */
+
+.skills-box { 
+  grid-area: skills;
+}
+
+.about-box { 
+  grid-area: about;
+}
+
+.certifications-box { 
+  grid-area: certs;
+}
+
+.contact-box { 
+  grid-area: contact;
+}
+
+.resume-box { 
+  grid-area: resume;
+}
+
+.more-box { 
+  grid-area: more;
+}
+
+/* ---------------------------------------------------- */
+
+/* ===== Modal Overlay (No Change) ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+/* ===== Modal Box (No Change) ===== */
+.modal {
+  background: rgba(25, 25, 60, 0.95);
+  color: #d0d8ff;
+  border-radius: 20px;
+  padding: 30px;
+  width: min(90%, 500px);
+  text-align: center;
+  box-shadow: 0 0 40px rgba(100, 100, 255, 0.35);
+  position: relative;
+  animation: popUp 0.4s ease forwards;
+}
+
+@keyframes popUp {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ===== Close Button (No Change) ===== */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #a5b9ff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.close-btn:hover {
+  color: #fff;
+}
+
+/* ===== Modal Content (No Change) ===== */
+.modal h2 {
+  margin-bottom: 10px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.modal p {
+  line-height: 1.6;
+  white-space: pre-line;
+  font-size: 1.05rem;
+}
+
+/* ---------------------------------------------------- */
+
+/* ===== Responsive Layout (ADJUSTED for grid-area) ===== */
+@media (max-width: 768px) {
+  .card-grid {
+    /* Stack cards in 2 columns for smaller screens */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    /* Redefine the area layout for mobile: 2x2 grid, then About Me, then More */
+    grid-template-areas:
+      "skills certs"
+      "contact resume"
+      "about about"
+      "more more";
+  }
+
+  .card {
+    height: 160px;
+    font-size: 1rem;
+  }
+  
+  .about-box { 
+    height: 200px; /* Give it a bit more height on mobile */
+  }
+}
