@@ -10,11 +10,11 @@ const HomePage = () => {
 
       <div className="profile-card-wrapper">
         <ProfileCard
-          name="Parithikrishnan M"
+          name="Parithikrishnan"
           title="Cyber Security Enthusiasts"
-          status="Online"
-          contactText="Contact Me"
-          avatarUrl="/mnt/data/programming/src/assets/parithikrishnan.jpeg" 
+          status="Open to Work"
+          contactText="Contact"
+          avatarUrl="../../public/parithikrishnan.jpeg" 
           showUserInfo={true}
           enableTilt={true}
           enableMobileTilt={false}
