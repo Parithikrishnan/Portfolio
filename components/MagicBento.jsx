@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { X, Download, Mail, User, MessageSquare, Send } from "lucide-react";
 
-const DEFAULT_PARTICLE_COUNT = 25;
-const DEFAULT_SPOTLIGHT_RADIUS = 300;
+const DEFAULT_PARTICLE_COUNT = 15;
+const DEFAULT_SPOTLIGHT_RADIUS = 500;
 const DEFAULT_GLOW_COLOR = '132, 0, 255';
 
 const cardData = [
@@ -36,7 +36,7 @@ const cardData = [
     title: "Download Resume",
     description: "View my complete CV",
     isDownload: true,
-    downloadPath: "../public/logo.jpeg"
+    downloadPath: "/resume.pdf"
   },
 ];
 

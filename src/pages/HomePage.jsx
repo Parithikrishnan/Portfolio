@@ -65,7 +65,7 @@ const HomePage = () => {
           title="Cyber Security Enthusiast"
           status="Open to Work"
           contactText="Contact"
-          avatarUrl="../../public/parithikrishnan.jpeg"
+          avatarUrl="/parithikrishnan.jpeg"
           showUserInfo={true}
           enableTilt={true}
           enableMobileTilt={false}
