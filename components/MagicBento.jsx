@@ -28,7 +28,7 @@ const cardData = [
   {
     id: "contact",
     title: "Contact Info",
-    description: "Get in touch",
+    description: "Drop a message",
     isContact: true,
   },
   {
@@ -298,13 +298,25 @@ export default function MagicBentoPortfolio() {
   }
 };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Form submitted! (This is a placeholder - connect to your backend)');
-    setShowContactForm(false);
-    setFormData({ name: '', email: '', message: '' });
-  };
+const handleSubmit = (e) => {
+  e.preventDefault();
+ // formspree data should be added here
+  setShowContactForm(false);
+  setFormData({ name: "", email: "", message: "" });
+  const notification = document.createElement("div");
+  notification.className = "top-right-notification";
+  notification.innerText = "Form submitted successfully!";
+  document.body.appendChild(notification);
+  void notification.offsetWidth;
+  notification.classList.add("show");
+  setTimeout(() => {
+    notification.classList.remove("show");
+    setTimeout(() => {
+      notification.remove();
+    }, 400);
+  }, 3000);
+};
+
 
   return (
     <>
@@ -584,7 +596,7 @@ export default function MagicBentoPortfolio() {
         .contact-form {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 40px;
         }
 
         .form-group {
@@ -760,7 +772,7 @@ export default function MagicBentoPortfolio() {
                 <button className="close-btn" onClick={() => setShowContactForm(false)}>
                   <X size={24} />
                 </button>
-                <h2>Get In Touch</h2>
+                <h2>Shoot Me a Message</h2>
                 
                 <form className="contact-form" onSubmit={handleSubmit}>
                   <div className="form-group">
@@ -805,12 +817,12 @@ export default function MagicBentoPortfolio() {
                 </form>
 
                 <div className="contact-details">
-                  <h3>Contact Details</h3>
-                  <p>📧 Email: your.email@example.com</p>
-                  <p>📱 Phone: +91 98765 43210</p>
-                  <p>📍 Location: Your City, Country</p>
-                  <p>🔗 LinkedIn: linkedin.com/in/yourprofile</p>
-                </div>
+  <h3>Further More Contact Details</h3>
+  <p>📧 Email   : <a href="mailto:parithikrishnan.mahendran@outlook.com">parithikrishnan.mahendran@outlook.com</a></p>
+  <p>🐱 Github  : <a href="https://github.com/Parithikrishnan" target="_blank" rel="noopener noreferrer">https://github.com/Parithikrishnan</a></p>
+  <p>🔗 LinkedIn: <a href="https://linkedin.com/in/Parithikrishnan" target="_blank" rel="noopener noreferrer">linkedin.com/in/Parithikrishnan</a></p>
+</div>
+
               </div>
             </div>
           )}

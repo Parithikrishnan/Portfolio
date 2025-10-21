@@ -179,3 +179,38 @@
     height: 200px; /* Give it a bit more height on mobile */
   }
 }
+
+/* === Bottom Right Notification === */
+.top-right-notification {
+  position: fixed;
+  bottom: 20px;          /* moved to bottom */
+  right: 20px;           /* stays on the right side */
+  background: linear-gradient(135deg, #7e22ce, #a855f7);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(150%);   /* slide upward into view */
+  transition: all 0.4s ease-in-out;
+  z-index: 9999;
+}
+
+.top-right-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional glowing animation */
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); }
+  50% { box-shadow: 0 0 25px rgba(168, 85, 247, 0.8); }
+  100% { box-shadow: 0 0 15px rgba(168, 85, 247, 0.4); }
+}
+
+.top-right-notification.show {
+  animation: glowPulse 2s infinite;
+}

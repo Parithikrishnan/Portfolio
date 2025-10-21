@@ -64,7 +64,7 @@ const HomePage = () => {
           name="Parithikrishnan"
           title="Cyber Security Enthusiast"
           status="Open to Work"
-          contactText="Contact"
+          contactText=""
           avatarUrl="/parithikrishnan.jpeg"
           showUserInfo={true}
           enableTilt={true}
