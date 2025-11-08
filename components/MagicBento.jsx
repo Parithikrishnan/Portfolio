@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { X, Download, Mail, User, MessageSquare, Send } from "lucide-react";
+import { X, Download, Mail, User, MessageSquare } from "lucide-react"; 
+import ContactForm from './ContactForm'; 
 
 const DEFAULT_PARTICLE_COUNT = 15;
 const DEFAULT_SPOTLIGHT_RADIUS = 500;
@@ -17,12 +18,12 @@ const cardData = [
     id: "projects",
     title: "View Projects",
     description: "Explore my latest work",
-    link: "/projects",
+    link: "https://github.com/Parithikrishnan?tab=repositories",
   },
   {
     id: "about",
     title: "About Me",
-    description: "My journey",
+    description: "View my journey",
     link: "/about-me",
   },
   {
@@ -36,7 +37,7 @@ const cardData = [
     title: "Download Resume",
     description: "View my complete CV",
     isDownload: true,
-    downloadPath: "/resume.pdf"
+    downloadPath: "/PARITHIKRISHNAN-M_Resume.pdf"
   },
 ];
 
@@ -102,7 +103,7 @@ const ParticleCard = ({ children, cardRef, glowColor = DEFAULT_GLOW_COLOR, parti
 
         clone.style.transform = 'scale(0)';
         clone.style.opacity = '0';
-        
+
         requestAnimationFrame(() => {
           clone.style.transition = 'all 0.3s ease';
           clone.style.transform = 'scale(1)';
@@ -185,7 +186,7 @@ const ParticleCard = ({ children, cardRef, glowColor = DEFAULT_GLOW_COLOR, parti
               }
             }
           };
-          
+
           p.style.transition = 'all 0.3s ease'; // Transition for scale/opacity
           p.style.transform = 'scale(1)';
           p.style.opacity = '1';
@@ -228,9 +229,8 @@ const ParticleCard = ({ children, cardRef, glowColor = DEFAULT_GLOW_COLOR, parti
 
 export default function MagicBentoPortfolio() {
   const [showContactForm, setShowContactForm] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const gridRef = useRef(null);
-  const cardRefs = useRef({}); // Initialize cardRefs as an empty object
+  const cardRefs = useRef({});
 
   useEffect(() => {
     if (!gridRef.current) return;
@@ -238,11 +238,11 @@ export default function MagicBentoPortfolio() {
     const handleMouseMove = (e) => {
       const section = gridRef.current;
       const rect = section.getBoundingClientRect();
-      const mouseInside = e.clientX >= rect.left && e.clientX <= rect.right && 
+      const mouseInside = e.clientX >= rect.left && e.clientX <= rect.right &&
                          e.clientY >= rect.top && e.clientY <= rect.bottom;
 
       const cards = section.querySelectorAll('.card');
-      
+
       if (!mouseInside) {
         cards.forEach(card => {
           card.style.setProperty('--glow-intensity', '0');
@@ -258,7 +258,7 @@ export default function MagicBentoPortfolio() {
         const cardRect = card.getBoundingClientRect();
         const centerX = cardRect.left + cardRect.width / 2;
         const centerY = cardRect.top + cardRect.height / 2;
-        const distance = Math.hypot(e.clientX - centerX, e.clientY - centerY) - 
+        const distance = Math.hypot(e.clientX - centerX, e.clientY - centerY) -
                         Math.max(cardRect.width, cardRect.height) / 2;
         const effectiveDistance = Math.max(0, distance);
 
@@ -284,38 +284,35 @@ export default function MagicBentoPortfolio() {
   }, []);
 
   const handleCardClick = (card) => {
-  if (card.isDownload && card.downloadPath) {
-    const link = document.createElement('a');
-    link.href = card.downloadPath;
-    link.setAttribute('download', 'Parithikrishnan_resume.pdf');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  } else if (card.isContact) {
-    setShowContactForm(true);
-  } else if (card.link) {
-    window.location.href = card.link;
-  }
-};
+    if (card.isDownload && card.downloadPath) {
+      const link = document.createElement('a');
+      link.href = card.downloadPath;
+      link.setAttribute('download', 'PARITHIKRISHNAN-M_Resume.pdf');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else if (card.isContact) {
+      setShowContactForm(true);
+    } else if (card.link) {
+      window.location.href = card.link;
+    }
+  };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
- // formspree data should be added here
-  setShowContactForm(false);
-  setFormData({ name: "", email: "", message: "" });
-  const notification = document.createElement("div");
-  notification.className = "top-right-notification";
-  notification.innerText = "Form submitted successfully!";
-  document.body.appendChild(notification);
-  void notification.offsetWidth;
-  notification.classList.add("show");
-  setTimeout(() => {
-    notification.classList.remove("show");
+  const handleFormspreeSuccess = useCallback(() => {
+    setShowContactForm(false); // Close the modal
+    const notification = document.createElement("div");
+    notification.className = "bottom-right-notification";
+    notification.innerText = "Form submitted successfully!";
+    document.body.appendChild(notification);
+    void notification.offsetWidth; 
+    notification.classList.add("show");
     setTimeout(() => {
-      notification.remove();
-    }, 400);
-  }, 3000);
-};
+      notification.classList.remove("show");
+      setTimeout(() => {
+        notification.remove();
+      }, 400);
+    }, 3000);
+  }, []);
 
 
   return (
@@ -418,18 +415,18 @@ const handleSubmit = (e) => {
           grid-column: span 1;
           grid-row: span 1;
         }
-        
+
         .card--about {
           grid-column: span 2;
           grid-row: span 2;
           min-height: 400px;
         }
-        
+
         .card--contact {
           grid-column: span 1;
           grid-row: span 1;
         }
-        
+
         .card--resume {
           grid-column: span 1;
           grid-row: span 1;
@@ -541,22 +538,23 @@ const handleSubmit = (e) => {
           background: linear-gradient(135deg, rgba(30, 25, 60, 0.98) 0%, rgba(20, 15, 45, 0.98) 100%);
           color: #d8e0ff;
           border: 2px solid rgba(132, 0, 255, 0.5);
-          border-radius: 24px;
+          border-radius: 14px;
           padding: 40px;
           width: min(90%, 600px);
           max-height: 85vh;
           overflow-y: auto;
+          scrollbar-width: none;
           box-shadow: 0 20px 60px rgba(132, 0, 255, 0.5);
           position: relative;
           animation: modalSlideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         @keyframes modalSlideUp {
-          from { 
+          from {
             opacity: 0;
             transform: translateY(30px) scale(0.95);
           }
-          to { 
+          to {
             opacity: 1;
             transform: translateY(0) scale(1);
           }
@@ -596,7 +594,7 @@ const handleSubmit = (e) => {
         .contact-form {
           display: flex;
           flex-direction: column;
-          gap: 40px;
+          gap: 20px;
         }
 
         .form-group {
@@ -679,21 +677,41 @@ const handleSubmit = (e) => {
           margin: 8px 0;
         }
 
+        .bottom-right-notification {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: rgba(132, 0, 255, 0.8);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        z-index: 1001;
+      }
+
+      .bottom-right-notification.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
         @media (max-width: 1024px) {
           .card-grid {
             grid-template-columns: repeat(2, 1fr);
           }
-          
+
           .card--hero {
             grid-column: 1 / -1;
           }
-          
+
           .card--about {
             grid-column: 1 / -1;
             grid-row: span 1;
             min-height: 300px;
           }
-          
+
           .card--projects,
           .card--contact,
           .card--resume {
@@ -706,20 +724,20 @@ const handleSubmit = (e) => {
             grid-template-columns: 1fr;
             gap: 0.8em;
           }
-          
+
           .card {
             min-height: 200px;
             padding: 1.5em;
           }
-          
+
           .card--hero .card__title {
             font-size: 2em;
           }
-          
+
           .card__title {
             font-size: 1.5em;
           }
-          
+
           .card__icon {
             width: 60px;
             height: 60px;
@@ -773,56 +791,17 @@ const handleSubmit = (e) => {
                   <X size={24} />
                 </button>
                 <h2>Shoot Me a Message</h2>
-                
-                <form className="contact-form" onSubmit={handleSubmit}>
-                  <div className="form-group">
-                    <label htmlFor="name">Your Name</label>
-                    <input
-                      id="name"
-                      type="text"
-                      placeholder="Enter your name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      required
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="email">Email Address</label>
-                    <input
-                      id="email"
-                      type="email"
-                      placeholder="your.email@example.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      required
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="message">Message</label>
-                    <textarea
-                      id="message"
-                      placeholder="Write your message here..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      required
-                    />
-                  </div>
-
-                  <button type="submit" className="submit-btn">
-                    <Send size={20} />
-                    Send Message
-                  </button>
-                </form>
+                <ContactForm
+                  onClose={() => setShowContactForm(false)}
+                  onSuccess={handleFormspreeSuccess}
+                />
 
                 <div className="contact-details">
-  <h3>Further More Contact Details</h3>
-  <p>📧 Email   : <a href="mailto:parithikrishnan.mahendran@outlook.com">parithikrishnan.mahendran@outlook.com</a></p>
-  <p>🐱 Github  : <a href="https://github.com/Parithikrishnan" target="_blank" rel="noopener noreferrer">https://github.com/Parithikrishnan</a></p>
-  <p>🔗 LinkedIn: <a href="https://linkedin.com/in/Parithikrishnan" target="_blank" rel="noopener noreferrer">linkedin.com/in/Parithikrishnan</a></p>
-</div>
-
+                  <h3>Further More Contact Details</h3>
+                  <p>📧 Email   : <a href="mailto:parithikrishnan.mahendran@outlook.com">parithikrishnan.mahendran@outlook.com</a></p>
+                  <p>🐱 Github  : <a href="https://github.com/Parithikrishnan" target="_blank" rel="noopener noreferrer">https://github.com/Parithikrishnan</a></p>
+                  <p>🔗 LinkedIn: <a href="https://linkedin.com/in/parithikrishnan" target="_blank" rel="noopener noreferrer">linkedin.com/in/parithikrishnan</a></p>
+                </div>
               </div>
             </div>
           )}

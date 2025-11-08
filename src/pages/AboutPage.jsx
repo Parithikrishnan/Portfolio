@@ -41,34 +41,34 @@ const AboutPage = () => {
 
   const certifications = [
     { 
-      name: 'AWS Certified Solutions Architect', 
-      org: 'Amazon Web Services', 
+      name: 'Malware Incident Response and Mitigation', 
+      org: 'Forage', 
       year: '2024',
-      id: 'AWS-SA-2024'
+      id: 'SqqJgG6Ceaih3WYvq'
     },
     { 
-      name: 'Google Cloud Professional Developer', 
-      org: 'Google Cloud Platform', 
+      name: 'Linux Command Line Workshop', 
+      org: 'FOSS-CIT', 
       year: '2024',
-      id: 'GCP-PD-2024'
+      id: 'None'
     },
     { 
-      name: 'React Advanced Certification', 
-      org: 'Meta Blueprint', 
-      year: '2023',
-      id: 'META-RA-2023'
+      name: 'Network and Network Security', 
+      org: 'Prompt Infotech', 
+      year: '2024',
+      id: 'PITE0208'
     },
     { 
-      name: 'Kubernetes Administrator (CKA)', 
-      org: 'Cloud Native Computing Foundation', 
-      year: '2023',
-      id: 'CNCF-CKA-2023'
+      name: 'Cyber Security for Businesses', 
+      org: 'EC-Council', 
+      year: '2024',
+      id: '369707'
     },
     { 
-      name: 'Python Data Science Professional', 
-      org: 'IBM', 
-      year: '2023',
-      id: 'IBM-DS-2023'
+      name: 'Phishing Simulation Design & Analysis', 
+      org: 'Forage', 
+      year: '2024',
+      id: 'SqqJgG6Ceaih3WYvq'
     }
   ];
 
@@ -201,22 +201,22 @@ const AboutPage = () => {
             <h2 className="card-title gradient-text">About Me</h2>
             <div className="about-me-content">
               <p>
-                I'm a passionate full-stack developer and designer based in <span className="highlight-text">Tiruppur, Tamil Nadu</span>. 
-                I specialize in creating stunning web experiences that combine cutting-edge technology with beautiful design.
+                I’m <span className="highlight-text">Parithikrishnan M</span>, a passionate student and aspiring cybersecurity professional based in Coimbatore, Tamil Nadu. 
+                I serve as the Joint Secretary of <span className="highlight-text">FOSS-CIT</span>, actively contributing to open-source communities and exploring cutting-edge technologies.
               </p>
               <p>
-                My expertise spans across modern web frameworks, cloud technologies, and UI/UX design. 
-                I believe in writing clean, maintainable code and creating interfaces that users love.
+                My interests span across <span className="highlight-text">cybersecurity, networking, communication, and decentralized technologies</span>. 
+                I have a strong focus on FOSS technologies in Linux and Android, and I am constantly exploring new tools, frameworks, and methodologies across the tech landscape.
               </p>
               <p>
-                With a strong foundation in both frontend and backend development, I architect scalable 
-                solutions that solve real-world problems. I'm constantly learning and adapting to new 
-                technologies in this ever-evolving field.
+                I thrive on building and securing robust architectures, testing systems for vulnerabilities, and designing private and secure communication solutions. 
+                With hands-on project experience, I am eager to learn, collaborate, and work alongside brilliant minds to create innovative and impactful solutions.
               </p>
+
               <div className="current-focus-section">
                 <p className="current-focus-title">Current Focus:</p>
                 <div className="focus-tags">
-                  {['React', 'Next.js', 'Cloud Architecture', 'AI/ML'].map((focus, i) => (
+                  {['Decentralized Communication', 'Communication without internet', 'Cryptocurrency'].map((focus, i) => (
                     <span 
                       key={i}
                       className="focus-tag"
@@ -239,37 +239,37 @@ const AboutPage = () => {
             <div className="hackathon-entries">
               <div className="hackathon-item">
                 <div className="hackathon-header">
-                  <h3 className="hackathon-name">ETHGlobal Hackathon 2024</h3>
-                  <span className="hackathon-badge winner">Winner 🏆</span>
+                  <h3 className="hackathon-name">CodeOClock</h3>
+                  <span className="hackathon-badge winner">24Hr Hackathon</span>
                 </div>
-                <p className="hackathon-description">Built a DeFi Dashboard with real-time analytics</p>
+                <p className="hackathon-description">Built a Supply Chain Management tool on Blockchain Network</p>
                 <div className="hackathon-tags">
-                  <span className="hackathon-tag">Web3</span>
+                  <span className="hackathon-tag">Python</span>
                   <span className="hackathon-tag">React</span>
                 </div>
               </div>
 
               <div className="hackathon-item">
                 <div className="hackathon-header">
-                  <h3 className="hackathon-name">Google Cloud Hackathon</h3>
-                  <span className="hackathon-badge second-place">2nd Place 🥈</span>
+                  <h3 className="hackathon-name">DevSpark</h3>
+                  <span className="hackathon-badge second-place">24Hr Hackathon</span>
                 </div>
-                <p className="hackathon-description">AI-powered voice assistant for accessibility</p>
+                <p className="hackathon-description">Ransomeware Detection and Prevention tool</p>
                 <div className="hackathon-tags">
-                  <span className="hackathon-tag">ML</span>
-                  <span className="hackathon-tag">Cloud</span>
+                  <span className="hackathon-tag">VM</span>
+                  <span className="hackathon-tag">Python</span>
                 </div>
               </div>
 
               <div className="hackathon-item">
                 <div className="hackathon-header">
-                  <h3 className="hackathon-name">MLH Fellowship 2023</h3>
-                  <span className="hackathon-badge top-ten">Top 10 ⭐</span>
+                  <h3 className="hackathon-name">Breach Point</h3>
+                  <span className="hackathon-badge top-ten">CTF</span>
                 </div>
-                <p className="hackathon-description">Health tracking app with ML predictions</p>
+                <p className="hackathon-description">I have lost more CTFs than I can count😂, but at least I’m rich with mistakes</p>
                 <div className="hackathon-tags">
-                  <span className="hackathon-tag">Mobile</span>
-                  <span className="hackathon-tag">AI</span>
+                  <span className="hackathon-tag">Forensics</span>
+                  <span className="hackathon-tag">OSINT</span>
                 </div>
               </div>
             </div>
@@ -277,7 +277,7 @@ const AboutPage = () => {
             <div className="currently-learning-section">
               <h3 className="learning-title">📚 Currently Learning</h3>
               <div className="learning-topics">
-                {['Rust', 'System Design', 'GraphQL', 'Blockchain', 'Microservices'].map((topic, i) => (
+                {['Crypto-economics', 'Crypto Market Trading (Baby)', 'Communication without internet', 'Blockchain'].map((topic, i) => (
                   <span 
                     key={i}
                     className="learning-topic-tag"
@@ -289,29 +289,6 @@ const AboutPage = () => {
             </div>
           </div>
 
-          {/* Contact Info - Small Top Right */}
-          <div 
-            className="contact-card glass-card animate-in group"
-            style={{ animationDelay: '0.3s' }}
-          >
-            <div className="contact-icon">
-              📧
-            </div>
-            <h3 className="contact-title">Contact Me</h3>
-            <p className="contact-email">hello@portfolio.dev</p>
-            <p className="contact-phone">+91 98765 43210</p>
-            <div className="social-links">
-              <div className="social-icon">
-                <span>💼</span>
-              </div>
-              <div className="social-icon">
-                <span>🐙</span>
-              </div>
-              <div className="social-icon">
-                <span>🔗</span>
-              </div>
-            </div>
-          </div>
 
           {/* Row 2 - Certifications */}
           <div 
@@ -369,7 +346,7 @@ const AboutPage = () => {
             className="foss-leadership-card glass-card animate-in"
             style={{ animationDelay: '0.5s' }}
           >
-            <h2 className="card-title gradient-text">FOSS Club & Leadership</h2>
+            <h2 className="card-title gradient-text">Experience</h2>
             
             <div className="leadership-entries">
               <div className="leadership-card">
@@ -378,12 +355,12 @@ const AboutPage = () => {
                     👑
                   </div>
                   <div>
-                    <h3 className="leadership-title-item">FOSS Club President</h3>
-                    <p className="leadership-duration">2023 - Present</p>
+                    <h3 className="leadership-title-item">Joint Secretary (FOSS-CIT)</h3>
+                    <p className="leadership-duration">2025 - Present</p>
                   </div>
                 </div>
                 <p className="leadership-description">
-                  Leading a vibrant community of 200+ open-source enthusiasts. Organizing 
+                  Leading a vibrant community of open-source enthusiasts. Organizing 
                   workshops, hackathons, and contributing to major FOSS projects.
                 </p>
                 <div className="leadership-tags">
@@ -399,18 +376,17 @@ const AboutPage = () => {
                     💻
                   </div>
                   <div>
-                    <h3 className="leadership-title-item">Tech Lead</h3>
-                    <p className="leadership-duration">Various Projects</p>
+                    <h3 className="leadership-title-item">Technical Team Member (FOSS-CIT)</h3>
+                    <p className="leadership-duration">2024 - 2025</p>
                   </div>
                 </div>
                 <p className="leadership-description">
-                  Architecting scalable solutions, mentoring junior developers, and leading 
-                  technical decisions for multiple college and freelance projects.
+                 Organized Workshops on Docker and MongoDB. Contributing to Open Source Projects.
                 </p>
                 <div className="leadership-tags">
-                  <span className="leadership-tag">Architecture</span>
-                  <span className="leadership-tag">Code Review</span>
-                  <span className="leadership-tag">Team Leadership</span>
+                  <span className="leadership-tag">Mentorship</span>
+                  <span className="leadership-tag">Event Management</span>
+                  <span className="leadership-tag">Project Workflows</span>
                 </div>
               </div>
 
@@ -420,17 +396,16 @@ const AboutPage = () => {
                     🎤
                   </div>
                   <div>
-                    <h3 className="leadership-title-item">Speaker & Mentor</h3>
-                    <p className="leadership-duration">Tech Conferences</p>
+                    <h3 className="leadership-title-item">Tech Team (Part Time)</h3>
+                    <p className="leadership-duration">06/2025 - 08/2025</p>
                   </div>
                 </div>
                 <p className="leadership-description">
-                  Regular speaker at tech meetups and conferences. Mentoring aspiring developers 
-                  and sharing knowledge on modern web development practices.
+                  Worked on projects including a Social Media Scraper, Billing Software, and Timesheets, gaining hands-on experience in web scraping, employee management, and billing system development
                 </p>
                 <div className="leadership-tags">
-                  <span className="leadership-tag">Public Speaking</span>
-                  <span className="leadership-tag">Teaching</span>
+                  <span className="leadership-tag">Project Workflows</span>
+                  <span className="leadership-tag">Project Management</span>
                 </div>
               </div>
             </div>
@@ -451,7 +426,7 @@ const AboutPage = () => {
                   Languages
                 </h3>
                 <div className="skill-tags">
-                  {['JavaScript', 'TypeScript', 'Python', 'Java', 'C++', 'Go', 'Rust'].map((skill, i) => (
+                  {['Python', 'JavaScript', 'Bash', 'C', 'C++'].map((skill, i) => (
                     <span key={i} className="skill-tag">
                       {skill}
                     </span>
@@ -466,7 +441,7 @@ const AboutPage = () => {
                   Frontend
                 </h3>
                 <div className="skill-tags">
-                  {['React', 'Next.js', 'Vue.js', 'Svelte', 'Tailwind CSS', 'Three.js', 'GSAP', 'Redux'].map((skill, i) => (
+                  {['React', 'Angular', 'Bootstrap', 'Tailwind CSS'].map((skill, i) => (
                     <span key={i} className="skill-tag">
                       {skill}
                     </span>
@@ -478,10 +453,10 @@ const AboutPage = () => {
               <div className="skill-category">
                 <h3 className="skill-category-title">
                   <span className="skill-category-dot"></span>
-                  Backend
+                  Backend and Databases
                 </h3>
                 <div className="skill-tags">
-                  {['Node.js', 'Express', 'Django', 'FastAPI', 'GraphQL', 'REST APIs', 'Socket.io'].map((skill, i) => (
+                  {['Node.js', 'Express', 'Django', 'REST APIs', 'Socket.io','MongoDB', 'PostgreSQL', 'MySQL', 'Firebase'].map((skill, i) => (
                     <span key={i} className="skill-tag">
                       {skill}
                     </span>
@@ -493,10 +468,10 @@ const AboutPage = () => {
               <div className="skill-category">
                 <h3 className="skill-category-title">
                   <span className="skill-category-dot"></span>
-                  Databases
+                  Tools and Frameworks
                 </h3>
                 <div className="skill-tags">
-                  {['MongoDB', 'PostgreSQL', 'MySQL', 'Redis', 'Firebase', 'Supabase'].map((skill, i) => (
+                  {[ 'Wireshark','Nmap','NetCat','Burp Suite','Caido','Nikto','Sandboxing','OWASP Top 10'].map((skill, i) => (
                     <span key={i} className="skill-tag">
                       {skill}
                     </span>
@@ -511,7 +486,7 @@ const AboutPage = () => {
                   DevOps & Tools
                 </h3>
                 <div className="skill-tags">
-                  {['Git', 'Docker', 'Kubernetes', 'AWS', 'Azure', 'CI/CD', 'Jenkins', 'Terraform'].map((skill, i) => (
+                  {['Git', 'Docker', 'Github','GitLab'].map((skill, i) => (
                     <span key={i} className="skill-tag">
                       {skill}
                     </span>
@@ -523,41 +498,15 @@ const AboutPage = () => {
               <div className="skill-category">
                 <h3 className="skill-category-title">
                   <span className="skill-category-dot"></span>
-                  Design & Creative
+                  Operating Systems
                 </h3>
                 <div className="skill-tags">
-                  {['Figma', 'Adobe XD', 'Photoshop', 'Illustrator', 'Blender', 'After Effects'].map((skill, i) => (
+                  {['Linux (Arch and Debian based Distributions)', 'Windows (Client)'].map((skill, i) => (
                     <span key={i} className="skill-tag">
                       {skill}
                     </span>
                   ))}
                 </div>
-              </div>
-            </div>
-
-            {/* Proficiency Levels */}
-            <div className="proficiency-levels-section">
-              <h3 className="proficiency-title">📊 Proficiency Levels</h3>
-              <div className="proficiency-grid">
-                {[
-                  { level: 'Expert', color: 'from-purple-600 to-purple-400', width: '95%', skills: 'React, Node.js, JavaScript, TypeScript' },
-                  { level: 'Advanced', color: 'from-purple-500 to-purple-300', width: '85%', skills: 'Python, AWS, Docker, GraphQL' },
-                  { level: 'Intermediate', color: 'from-purple-400 to-purple-200', width: '70%', skills: 'Go, Kubernetes, Machine Learning' }
-                ].map((item, i) => (
-                  <div key={i} className="proficiency-item group">
-                    <div className="proficiency-header">
-                      <span className="proficiency-level">{item.level}</span>
-                      <span className="proficiency-percentage">{item.width}</span>
-                    </div>
-                    <div className="proficiency-bar-background">
-                      <div 
-                        className={`proficiency-bar bg-gradient-to-r ${item.color}`}
-                        style={{ width: item.width }}
-                      />
-                    </div>
-                    <p className="proficiency-skills">{item.skills}</p>
-                  </div>
-                ))}
               </div>
             </div>
           </div>

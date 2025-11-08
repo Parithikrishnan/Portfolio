@@ -12,7 +12,7 @@ const DEFAULT_GLOW_COLOR = '132, 0, 255';
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
 
 const GITHUB_URL = "https://github.com/Parithikrishnan";
-const LINKEDIN_URL = "https://linkedin.com/in/Parithikrishnan";
+const LINKEDIN_URL = "https://linkedin.com/in/parithikrishnan";
 const YOUR_EMAIL_ADDRESS = 'parithikrishnan.mahendran@outlook.com';
 const YOUR_MAIL_SUBJECT = 'Inquiry';
 
@@ -35,6 +35,7 @@ const HeaderLinks = () => (
 
 const FooterComponent = () => (
   <footer className="page-footer">
+    <p>Analyzed with Umami for visitor stat; no personal data stored</p>
     <p>Built with 💜</p>
   </footer>
 );
